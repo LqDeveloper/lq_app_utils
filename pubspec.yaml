@@ -1,7 +1,7 @@
 name: lq_app_utils
-description: Flutter开发常用工具类
+description: Flutter开发常用工具类，包括常用extension，常用第三方package，如网络监听等。
 version: 0.0.1
-homepage:
+homepage: https://github.com/LqDeveloper/lq_app_utils
 
 environment:
   sdk: '>=2.19.6 <3.0.0'
