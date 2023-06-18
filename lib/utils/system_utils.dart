@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 typedef CopyCallBack = void Function(bool result);
@@ -7,7 +8,7 @@ typedef CopyDataCallBack = void Function(String? result);
 class SystemUtils {
   SystemUtils._();
 
-  /// 隐藏软键盘，具体可看：TextInputChannel
+  /// 隐藏软键盘，具体可看：TextInputChannel 并不取消焦点
   static void hideKeyboard() {
     SystemChannels.textInput.invokeMethod('TextInput.hide');
   }
@@ -15,6 +16,11 @@ class SystemUtils {
   /// 展示软键盘，具体可看：TextInputChannel
   static void showKeyboard() {
     SystemChannels.textInput.invokeMethod('TextInput.show');
+  }
+
+  ///隐藏键盘并取消焦点
+  static void dismissKeyboard() {
+    FocusManager.instance.primaryFocus?.unfocus();
   }
 
   /// 清除数据

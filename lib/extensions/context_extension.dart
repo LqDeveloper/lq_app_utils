@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 extension ThemeExtensions on BuildContext {
@@ -39,6 +41,36 @@ extension ThemeExtensions on BuildContext {
   ///获取Widget的大小
   Size? get size {
     return renderBox?.paintBounds.size;
+  }
+
+  ///获取FlutterView
+  FlutterView? get flutterView => View.maybeOf(this);
+
+  ///AppBar的高度加上安全区域的高度
+  double get navigationBarHeight {
+    final view = flutterView;
+    if (view != null) {
+      return MediaQueryData.fromView(view).padding.top + kToolbarHeight;
+    }
+    return kToolbarHeight;
+  }
+
+  ///头部安全区域的高度
+  double get topSafeHeight {
+    final view = flutterView;
+    if (view != null) {
+      return MediaQueryData.fromView(view).padding.top;
+    }
+    return 0;
+  }
+
+  ///底部安全区域的高度
+  double get bottomSafeHeight {
+    final view = flutterView;
+    if (view != null) {
+      return MediaQueryData.fromView(view).padding.bottom;
+    }
+    return 0;
   }
 }
 
