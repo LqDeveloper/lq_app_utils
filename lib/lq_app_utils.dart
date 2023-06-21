@@ -26,6 +26,8 @@ export 'mixin/state_context_ready_mixin.dart';
 //widgets
 export 'widgets/after_layout_view.dart';
 export 'widgets/bottom_nav_bar.dart';
+export 'widgets/future_widget.dart';
 export 'widgets/keyboard_dismiss.dart';
 export 'widgets/layout_log_view.dart';
 export 'widgets/scroll_notification_listener.dart';
+export 'widgets/stream_widget.dart';
