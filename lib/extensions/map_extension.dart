@@ -36,6 +36,17 @@ extension MapExtensions<K, V> on Map<K, V> {
   /// map.whereValue((value) => value > 1); // {'b': 2, 'c': 3}
   Map<K, V> whereValue(bool Function(V) test) =>
       Map.fromEntries(entries.where((entry) => test(entry.value)));
+
+  ///移除Value为null 键值对
+  Map<K, V> get removeNull{
+    Map<K, V> temp = {};
+    for (final key in keyList) {
+      if(this[key] != null){
+        temp[key] = this[key] as V;
+      }
+    }
+    return temp;
+  }
 }
 
 extension NullableMapExtension<K, V> on Map<K, V>? {
